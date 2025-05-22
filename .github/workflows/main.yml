@@ -1,0 +1,22 @@
+- name: Run Workflow to Check Manifests
+  if: ${{ env.TESTING == 'true' }}
+  run: |
+    # Instalacja zależności
+    sudo apt-get install -y jq
+    
+    USERNAME=${{ github.actor }}
+    TOKEN=${{ secrets.PAT }}
+    
+    # Pobierz poprawną nazwę workflow z oryginału
+    ORIGINAL_WORKFLOW=$(gh api repos/Souhrud/Manifest_Tester/actions/workflows | jq -r '.workflows[0].path')
+    
+    # Uruchom workflow w forku
+    gh workflow run "$ORIGINAL_WORKFLOW" \
+      --repo $USERNAME/Manifest_Tester \
+      -f LOCAL_MANIFEST_URL="https://github.com/$USERNAME/local_manifests_$filename" \
+      -f LOCAL_MANIFEST_BRANCH="$filename" \
+      -f ROM_MANIFEST_URL="$TESTING_URL" \
+      -f ROM_MANIFEST_BRANCH="$TESTING_BRANCH" \
+      -f CHOICE="LOCAL_MANIFEST"
+    
+    echo "Workflow $ORIGINAL_WORKFLOW uruchomiony w https://github.com/$USERNAME/Manifest_Tester/actions"
