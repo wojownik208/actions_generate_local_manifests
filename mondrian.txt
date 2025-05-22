@@ -1,0 +1,4 @@
+repo init -u https://github.com/RisingOS-Revived/android -b fifteen --git-lfs
+git clone https://github.com/keosh1/android_device_xiaomi_mondrian.git device/xiaomi/mondrian -b lineage-22.0 
+git clone https://github.com/DanipunK1-mondrian-DC/device_xiaomi_mondrian-kernel kernel/xiaomi/mondrian -b rising
+git clone https://github.com/keosh1/proprietary_vendor_xiaomi_mondrian-new.git vendor/xiaomi/mondrian -b lineage-22.2
