@@ -1,5 +1,0 @@
-repo init -u https://github.com/crdroidandroid/android.git -b 7.0 --git-lfs
-git clone https://github.com/html6405/android_device_samsung_n8000.git device/samsung/n8000 -b lineage-18.1
-git clone https://github.com/html6405/android_device_samsung_smdk4412-common.git device/samsung/smdk4412-common -b lineage-18.1
-git clone https://github.com/html6405/android_device_samsung_n80xx-common.git device/samsung/n80xx-common -b lineage-18.1
-git clone https://github.com/wojownik208/android_kernel_samsung_smdk4412.git kernel/samsung/smdk4412 -b lineage-18.1
